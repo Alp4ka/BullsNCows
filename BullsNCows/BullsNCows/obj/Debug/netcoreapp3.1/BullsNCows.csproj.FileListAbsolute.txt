@@ -1,0 +1,13 @@
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\bin\Debug\netcoreapp3.1\BullsNCows.exe
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\bin\Debug\netcoreapp3.1\BullsNCows.deps.json
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\bin\Debug\netcoreapp3.1\BullsNCows.runtimeconfig.json
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\bin\Debug\netcoreapp3.1\BullsNCows.runtimeconfig.dev.json
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\bin\Debug\netcoreapp3.1\BullsNCows.dll
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\bin\Debug\netcoreapp3.1\BullsNCows.pdb
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.csprojAssemblyReference.cache
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.AssemblyInfoInputs.cache
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.AssemblyInfo.cs
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.csproj.CoreCompileInputs.cache
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.dll
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.pdb
+C:\Users\kisam\source\repos\BullsNCows\BullsNCows\obj\Debug\netcoreapp3.1\BullsNCows.genruntimeconfig.cache

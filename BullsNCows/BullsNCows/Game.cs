@@ -103,9 +103,9 @@ namespace BullsNCows
             if (input.Length != this.n)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(String.Format("Line lenght should be {0} symbols!", this.n));
+                Console.WriteLine(String.Format("Line length should be {0} symbols!", this.n));
                 Console.ForegroundColor = ConsoleColor.White;
-                throw new Exception(String.Format("Line lenght should be {0} symbols!", this.n));
+                throw new Exception(String.Format("Line length should be {0} symbols!", this.n));
             }
             for (int i = 0; i < this.n; ++i)
             {

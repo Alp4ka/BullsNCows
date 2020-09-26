@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Threading;
 
 namespace BullsNCows
 {
@@ -55,6 +53,8 @@ namespace BullsNCows
             Console.WriteLine(new String('#', bnc.N));
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
+
+            // Main cycle. 
             while (!bnc.Gameover)
             {
                 Console.ForegroundColor = ConsoleColor.White;
@@ -81,13 +81,13 @@ namespace BullsNCows
                             {
                                 Console.Clear();
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("-Congratulations! Game over! You've won in {0} attempts!", bnc.Attempts);
-                                Console.Write("Correct answer is ");
+                                AnimatedLine.WriteLine(String.Format("-Congratulations! Game over! You've won in {0} attempts!", bnc.Attempts));
+                                AnimatedLine.Write("Correct answer is ");
                                 Console.ForegroundColor = ConsoleColor.Magenta;
-                                Console.WriteLine(bnc.ToString(bnc.ToGuess) + '!');
+                                AnimatedLine.WriteLine(bnc.ToString(bnc.ToGuess) + '!');
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine();
-                                Console.WriteLine("Your attempts:");
+                                AnimatedLine.WriteLine("Your attempts:");
                                 foreach (int[] item in bnc.Steps)
                                 {
                                     Console.WriteLine(bnc.ToString(item));
@@ -102,7 +102,7 @@ namespace BullsNCows
                             {
                                 Console.ForegroundColor = ConsoleColor.Magenta;
                                 Console.WriteLine();
-                                Console.WriteLine(phrases[rnd.Next() % phrases.Length]);
+                                AnimatedLine.WriteLine(phrases[rnd.Next() % phrases.Length]);
                                 Console.ForegroundColor = ConsoleColor.White;
                             }
                         }

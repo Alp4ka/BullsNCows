@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kisam\\source\\repos\\BullsNCows\\BullsNCows\\BullsNCows.csproj": {}
+    "C:\\Users\\kisam\\Desktop\\BullsNCows\\BullsNCows\\BullsNCows\\BullsNCows.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kisam\\source\\repos\\BullsNCows\\BullsNCows\\BullsNCows.csproj": {
+    "C:\\Users\\kisam\\Desktop\\BullsNCows\\BullsNCows\\BullsNCows\\BullsNCows.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kisam\\source\\repos\\BullsNCows\\BullsNCows\\BullsNCows.csproj",
+        "projectUniqueName": "C:\\Users\\kisam\\Desktop\\BullsNCows\\BullsNCows\\BullsNCows\\BullsNCows.csproj",
         "projectName": "BullsNCows",
-        "projectPath": "C:\\Users\\kisam\\source\\repos\\BullsNCows\\BullsNCows\\BullsNCows.csproj",
+        "projectPath": "C:\\Users\\kisam\\Desktop\\BullsNCows\\BullsNCows\\BullsNCows\\BullsNCows.csproj",
         "packagesPath": "C:\\Users\\kisam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kisam\\source\\repos\\BullsNCows\\BullsNCows\\obj\\",
+        "outputPath": "C:\\Users\\kisam\\Desktop\\BullsNCows\\BullsNCows\\BullsNCows\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\kisam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

@@ -15,13 +15,15 @@ namespace BullsNCows
         /// <summary>
         /// Constructor
         /// </summary>
-        public Game()
+        public Game(int n = 4)
         {
             this.to_guess = new int[4] { -1, -1, -1, -1 };
+            N = n;
+            Array.Resize(ref to_guess, this.n);
             this.gameover = false;
             this.attempts = 0;
             this.steps = new List<int[]>();
-            this.n = 0;
+            
         }
         private int[] to_guess;
         private bool gameover;
@@ -37,7 +39,8 @@ namespace BullsNCows
             List<int> possible_nums = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             Random rand = new Random();
             int[] nums = new int[4];
-            for (int i = 0; i < 4; ++i)
+            Array.Resize(ref nums, this.n);
+            for (int i = 0; i < this.n; ++i)
             {
                 int r = rand.Next() % possible_nums.Count;
                 nums[i] = possible_nums[r];
@@ -52,11 +55,11 @@ namespace BullsNCows
         /// </summary>
         /// <param name="input"> Integer array with length = n. </param>
         /// <returns> True if input is correct, otherwise - false. </returns>
-        public static bool CheckInput(int[] input)
+        public bool CheckInput(int[] input)
         {
-            if (input.Length == 4)
+            if (input.Length == this.n)
             {
-                for (int i = 0; i < 4; ++i)
+                for (int i = 0; i < this.n; ++i)
                 {
                     if (input[i] > 9 || input[i] < 0)
                     {
@@ -66,9 +69,9 @@ namespace BullsNCows
                         return false;
                     }
                 }
-                for (int i = 0; i < 3; ++i)
+                for (int i = 0; i < this.n-1; ++i)
                 {
-                    for (int j = i + 1; j < 4; ++j)
+                    for (int j = i + 1; j < this.n; ++j)
                     {
                         if (input[i] == input[j])
                         {
@@ -84,7 +87,7 @@ namespace BullsNCows
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Line lenght should be 4 symbols!");
+                Console.WriteLine(string.Format("Line lenght should be {0} symbols!", this.n));
                 Console.ForegroundColor = ConsoleColor.White;
                 return false;
             }
@@ -95,17 +98,18 @@ namespace BullsNCows
         /// </summary>
         /// <param name="input"> Input string. </param>
         /// <returns> Integer array with length = n. </returns>
-        public static int[] CorrectForm(string input)
+        public int[] CorrectForm(string input)
         {
             int[] result = new int[4] { 0, 0, 0, 0 };
-            if (input.Length != 4)
+            Array.Resize(ref result, this.n);
+            if (input.Length != this.n)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Line lenght should be 4 symbols!");
+                Console.WriteLine(String.Format("Line lenght should be {0} symbols!", this.n));
                 Console.ForegroundColor = ConsoleColor.White;
-                throw new Exception("Line lenght should be 4 symbols!");
+                throw new Exception(String.Format("Line lenght should be {0} symbols!", this.n));
             }
-            for (int i = 0; i < 4; ++i)
+            for (int i = 0; i < this.n; ++i)
             {
                 if (!Int32.TryParse(input[i].ToString(), out result[i]))
                 {
@@ -124,10 +128,10 @@ namespace BullsNCows
         /// </summary>
         /// <param name="a"> Integer array with length = n. </param>
         /// <returns> String shows human view of integer array with length = n. </returns>
-        public static string ToString(int[] a)
+        public string ToString(int[] a)
         {
             string result = "";
-            for (int i = 0; i < 4; ++i)
+            for (int i = 0; i < this.n; ++i)
             {
                 result += a[i].ToString();
             }
@@ -141,7 +145,8 @@ namespace BullsNCows
         public int[] CheckState(int[] variant)
         {
             int[] result = new int[4] { 0, 0, 0, 0 };
-            for (int i = 0; i < 4; ++i)
+            Array.Resize(ref result, this.n);
+            for (int i = 0; i < this.n; ++i)
             {
                 if (this.to_guess.Contains(variant[i]))
                 {
@@ -180,7 +185,7 @@ namespace BullsNCows
             Console.WriteLine(ShowState(current_state));
             Console.ForegroundColor = ConsoleColor.White;
             this.steps.Add(attempt);
-            if (current_state.Sum() == 8)
+            if (current_state.Sum() == 2*this.n)
             {
                 this.gameover = true;
                 return true;
@@ -197,9 +202,9 @@ namespace BullsNCows
         public static void Tutorial()
         {
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("*press enter to see the next step*");
+            Console.WriteLine("*Press Enter to see the next step.*");
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("I choose a secret number (4 digits and there are no duplicate digits) and ask you to guess what the number is. When you make a guess, I provide a hint with the following info:");
+            Console.WriteLine("I choose a secret number (N digits and there are no duplicates) and ask you to guess what the number is. When you make a guess, I provide a hint with the following info:");
             Console.ReadLine();
             Console.WriteLine("    -The number of 'bulls', which are digits in the guess that are in the correct position.");
             Console.ReadLine();
@@ -207,8 +212,14 @@ namespace BullsNCows
             Console.ReadLine();
             Console.WriteLine();
             Console.WriteLine("Example: ");
-            Console.WriteLine("My number is 3459.");
-            Console.WriteLine("You type 3490.");
+            Console.Write("My number is ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("3459");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("You type ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("3490");
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.ReadLine();
             Console.WriteLine("I give you a hint: ");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -256,9 +267,9 @@ namespace BullsNCows
             {
                 try
                 {
-                    if (value.Length == 4 && value is int[])
+                    if (value.Length == this.n && value is int[])
                     {
-                        for (int i = 0; i < 4; ++i)
+                        for (int i = 0; i < this.n; ++i)
                         {
                             this.to_guess[i] = value[i];
                         }
@@ -295,6 +306,28 @@ namespace BullsNCows
             get
             {
                 return this.steps;
+            }
+        }
+        /// <summary>
+        /// Still.
+        /// </summary>
+        public int N
+        {
+            get
+            {
+                return this.n;
+            }
+            set
+            {
+                if (value < 1)
+                {
+                    value = 1;
+                }
+                else if(value > 9)
+                {
+                    value = 9;
+                }
+                this.n = value;
             }
         }
     }

@@ -21,8 +21,8 @@ namespace BullsNCows
         {
             Console.ForegroundColor = ConsoleColor.White;
             string[] phrases = new string[3] { "-Oops! It's not my number. Try another!", "-He-he. You're wrong. Try next time!", "-Loser! Maybe try another number;)" };
-            Game bnc = new Game();
             string line;
+            int n = 0;
             int[] slot = new int[4];
             Random rnd = new Random();
 
@@ -31,25 +31,46 @@ namespace BullsNCows
             {
                 Game.Tutorial();
             }
+
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("Choose the amount of digits there should be in my number(1 to 9 including): ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            while(!Int32.TryParse(Console.ReadLine(), out n))
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("Choose the amount of digits there should be in my number(1 to 9 including): ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
+            n = (new Game(n)).N;
+            Array.Resize(ref slot, n);
+            Game bnc = new Game(n);
             bnc.Generate();
+
+
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("-Lets start! Try to guess the number I choose!");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(new String('#', bnc.N));
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             while (!bnc.Gameover)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.Write("Type: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 line = Console.ReadLine();
                 if (line == "/answer")
                 {
-                    Console.WriteLine(Game.ToString(bnc.ToGuess));
+                    Console.WriteLine(bnc.ToString(bnc.ToGuess));
                 }
                 else
                 {
                     try
                     {
-                        slot = Game.CorrectForm(line);
-                        if (!Game.CheckInput(slot))
+                        slot = bnc.CorrectForm(line);
+                        if (!bnc.CheckInput(slot))
                         {
                             Console.WriteLine();
                             throw new Exception();
@@ -63,13 +84,13 @@ namespace BullsNCows
                                 Console.WriteLine("-Congratulations! Game over! You've won in {0} attempts!", bnc.Attempts);
                                 Console.Write("Correct answer is ");
                                 Console.ForegroundColor = ConsoleColor.Magenta;
-                                Console.WriteLine(Game.ToString(bnc.ToGuess) + '!');
+                                Console.WriteLine(bnc.ToString(bnc.ToGuess) + '!');
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine();
                                 Console.WriteLine("Your attempts:");
                                 foreach (int[] item in bnc.Steps)
                                 {
-                                    Console.WriteLine(Game.ToString(item));
+                                    Console.WriteLine(bnc.ToString(item));
                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.WriteLine(Game.ShowState(bnc.CheckState(item)));
                                     Console.ForegroundColor = ConsoleColor.Gray;

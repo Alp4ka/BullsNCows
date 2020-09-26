@@ -1,9 +1,7 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
+
 
 namespace BullsNCows
 {
@@ -204,32 +202,32 @@ namespace BullsNCows
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("*Press Enter to see the next step.*");
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("I choose a secret number (N digits and there are no duplicates) and ask you to guess what the number is. When you make a guess, I provide a hint with the following info:");
+            AnimatedLine.WriteLine("I choose a secret number (N digits and there are no duplicates) and ask you to guess what the number is. When you make a guess, I provide a hint with the following info:");
             Console.ReadLine();
-            Console.WriteLine("    -The number of 'bulls', which are digits in the guess that are in the correct position.");
+            AnimatedLine.WriteLine("    -The number of 'bulls', which are digits in the guess that are in the correct position.");
             Console.ReadLine();
-            Console.WriteLine("    -The number of 'cows', which are digits in the guess that are in your secret number but are located in the wrong position. Specifically, the non-bull digits in the guess that could be rearranged such that they become bulls.");
+            AnimatedLine.WriteLine("    -The number of 'cows', which are digits in the guess that are in your secret number but are located in the wrong position. Specifically, the non-bull digits in the guess that could be rearranged such that they become bulls.");
             Console.ReadLine();
             Console.WriteLine();
-            Console.WriteLine("Example: ");
-            Console.Write("My number is ");
+            AnimatedLine.WriteLine("Example: ");
+            AnimatedLine.Write("My number is ");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("3459");
+            AnimatedLine.WriteLine("3459");
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write("You type ");
+            AnimatedLine.Write("You type ");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("3490");
+            AnimatedLine.WriteLine("3490");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.ReadLine();
-            Console.WriteLine("I give you a hint: ");
+            AnimatedLine.WriteLine("I give you a hint: ");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Bulls: 2");
-            Console.WriteLine("Cows: 1");
+            AnimatedLine.WriteLine("Bulls: 2");
+            AnimatedLine.WriteLine("Cows: 1");
             Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("It means 3, 4 are 'Bulls' and 9 is a 'Cow'.");
+            AnimatedLine.WriteLine("It means 3, 4 are 'Bulls' and 9 is a 'Cow'.");
             Console.ReadLine();
-            Console.WriteLine("Good luck!");
+            AnimatedLine.WriteLine("Good luck!");
             Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Если ты лох, то напиши /answer вместо своего предположения");
